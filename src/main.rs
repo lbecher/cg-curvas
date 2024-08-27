@@ -6,7 +6,9 @@ type Mat4x2 = Matrix4x2<f32>;
 type Mat4x3 = Matrix4x3<f32>;
 
 fn main() {
+
     // Questão 1
+
     let g_matrix: Mat4x2 = Mat4x2::new(
         10.0, 20.0, 
         30.0, 5.0, 
@@ -24,6 +26,7 @@ fn main() {
     print!("{}", t_matrix(0.9) * c_matrix);
 
     // Questão 2
+    
     let g_matrix: Mat4x2 = Mat4x2::new(
         13.0, 19.0, 
         2.0, -5.0, 
@@ -44,14 +47,9 @@ fn main() {
 
     println!("Questão 2 B-Spline");
 
-    let c_matrix: Mat4x2 = b_spline_matrix() * g_matrix;
+    // Questão 3
 
-    print!("{}", t_matrix(0.1) * c_matrix);
-    print!("{}", t_matrix(0.3) * c_matrix);
-    print!("{}", t_matrix(0.55) * c_matrix);
-    print!("{}", t_matrix(0.7) * c_matrix);
-    print!("{}", t_matrix(0.85) * c_matrix);
-    print!("{}", t_matrix(1.0) * c_matrix);
+    println!("Questão 3");
 }
 
 fn t_matrix(t: f32) -> Mat1x4 {
