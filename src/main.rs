@@ -19,6 +19,8 @@ fn main() {
 
     println!("Questão 1");
 
+    print!("{}", c_matrix);
+
     print!("{}", t_matrix(0.2) * c_matrix);
     print!("{}", t_matrix(0.35) * c_matrix);
     print!("{}", t_matrix(0.5) * c_matrix);
@@ -38,6 +40,8 @@ fn main() {
 
     let c_matrix: Mat4x2 = bezier_matrix() * g_matrix;
 
+    print!("{}", c_matrix);
+
     print!("{}", t_matrix(0.1) * c_matrix);
     print!("{}", t_matrix(0.3) * c_matrix);
     print!("{}", t_matrix(0.55) * c_matrix);
@@ -46,10 +50,38 @@ fn main() {
     print!("{}", t_matrix(1.0) * c_matrix);
 
     println!("Questão 2 B-Spline");
+    
+    let c_matrix: Mat4x2 = b_spline_matrix() * g_matrix;
+
+    print!("{}", c_matrix);
+
+    print!("{}", t_matrix(0.1) * c_matrix);
+    print!("{}", t_matrix(0.3) * c_matrix);
+    print!("{}", t_matrix(0.55) * c_matrix);
+    print!("{}", t_matrix(0.7) * c_matrix);
+    print!("{}", t_matrix(0.85) * c_matrix);
+    print!("{}", t_matrix(1.0) * c_matrix);
 
     // Questão 3
 
+    let g_matrix: Mat4x3 = Mat4x3::new(
+        1.0, 3.0, 8.0, 
+        5.0, -1.0, 12.0, 
+        12.0, 8.0, -4.0,
+        16.0, 5.0, 7.0,
+    );
+
     println!("Questão 3");
+
+    let c_matrix: Mat4x3 = b_spline_matrix() * g_matrix;
+
+    print!("{}", c_matrix);
+
+    print!("{}", t_matrix(0.1) * c_matrix);
+    print!("{}", t_matrix(0.25) * c_matrix);
+    print!("{}", t_matrix(0.48) * c_matrix);
+    print!("{}", t_matrix(0.69) * c_matrix);
+    print!("{}", t_matrix(0.94) * c_matrix);
 }
 
 fn t_matrix(t: f32) -> Mat1x4 {
@@ -75,7 +107,7 @@ fn bezier_matrix() -> Mat4 {
 }
 
 fn b_spline_matrix() -> Mat4 {
-    Mat4::new(
+    (1.0 / 6.0) * Mat4::new(
         -1.0, 3.0, -3.0, 1.0,
         3.0, -6.0, 3.0, 0.0,
         -3.0, 0.0, 3.0, 0.0,
